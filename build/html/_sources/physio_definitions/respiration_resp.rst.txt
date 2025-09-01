@@ -1,0 +1,11 @@
+Respiration(resp)
+=================
+
+
+.. code-block:: text
+
+    These additional fields MUST be included in the JSON sidecar <matches>_recording-resp_physio.json for automated data analysis pipelining
+
+
+TSV Example
+JSON example

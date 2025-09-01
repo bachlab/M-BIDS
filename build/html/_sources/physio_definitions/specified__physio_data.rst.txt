@@ -1,0 +1,17 @@
+“Specified” Physio Data
+=======================
+The following physio modalities are considered specified and are included in this section
+
+Directory Structure
+.. code-block:: text
+
+    Where <matches> corresponds to sub-<label>_ses-<label>_task-<label> before the suffix.  For example, sub-01_ses-01_task-FearAcquisition for the file sub-01_ses-01_task-FearAcquisition-recording-scr.tsv.
+In addition to the , we propose a standardized format for the following physio modalities. Each of the modality MUST be stored in a separate file the name of which is governed by the recording label property.
+Each file MUST contain the corresponding data column(s) to hold the physio data recordings.
+
+.. code-block:: text
+
+    Each file may contain one or more data columns corresponding to multiple channels and/or multiple simultaneous recordings (eg. scr1, scr2, scr3 for scr recordings at different positions on the body, resp1, resp2, resp3 for different types of respiratory measurements like chest volume, abdominal volume, pressure, etc). All such data columns MUST be appropriately defined in the JSON metadata.
+Additionally, each file may contain the OPTIONAL timestamp column to note the timestamp issued by the recording device at the time of data acquisition.
+Information about the ,  and  used in the data acquisition MUST be recorded in the JSON sidecar wherever applicable. Metadata object Placement which captures information regarding the position of the sensors used for measuring physiological data MUST be included wherever applicable. Possible values for the Placement field and more information about specific data modalities are noted in the following subsections.
+Please note that none of the TSV data files include a header line. The headings are to be defined in the corresponding JSON file only.

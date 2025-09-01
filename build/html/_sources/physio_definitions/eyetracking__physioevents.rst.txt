@@ -1,0 +1,12 @@
+Eyetracking ‘physioevents’
+==========================
+
+This file contains data regarding the physiological events recorded by the eyetracker during the course of the recording session.
+.. code-block:: text
+
+    physioevents.tsv
+Eyetracking physioevents TSV data files do not need column names.
+
+.. code-block:: text
+
+    physioevents.json

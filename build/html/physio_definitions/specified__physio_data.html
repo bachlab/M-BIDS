@@ -1,0 +1,120 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>“Specified” Physio Data &mdash; M-BIDS  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            M-BIDS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/introduction.html">What is M-BIDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../event_definitions/index.html">Event Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Physiology Data Definitions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">M-BIDS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">“Specified” Physio Data</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/physio_definitions/specified__physio_data.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="specified-physio-data">
+<h1>“Specified” Physio Data<a class="headerlink" href="#specified-physio-data" title="Link to this heading"></a></h1>
+<p>The following physio modalities are considered specified and are included in this section</p>
+<p>Directory Structure
+.. code-block:: text</p>
+<blockquote>
+<div><p>Where &lt;matches&gt; corresponds to sub-&lt;label&gt;_ses-&lt;label&gt;_task-&lt;label&gt; before the suffix.  For example, sub-01_ses-01_task-FearAcquisition for the file sub-01_ses-01_task-FearAcquisition-recording-scr.tsv.</p>
+</div></blockquote>
+<p>In addition to the , we propose a standardized format for the following physio modalities. Each of the modality MUST be stored in a separate file the name of which is governed by the recording label property.
+Each file MUST contain the corresponding data column(s) to hold the physio data recordings.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Each file may contain one or more data columns corresponding to multiple channels and/or multiple simultaneous recordings (eg. scr1, scr2, scr3 for scr recordings at different positions on the body, resp1, resp2, resp3 for different types of respiratory measurements like chest volume, abdominal volume, pressure, etc). All such data columns MUST be appropriately defined in the JSON metadata.
+</pre></div>
+</div>
+<p>Additionally, each file may contain the OPTIONAL timestamp column to note the timestamp issued by the recording device at the time of data acquisition.
+Information about the ,  and  used in the data acquisition MUST be recorded in the JSON sidecar wherever applicable. Metadata object Placement which captures information regarding the position of the sensors used for measuring physiological data MUST be included wherever applicable. Possible values for the Placement field and more information about specific data modalities are noted in the following subsections.
+Please note that none of the TSV data files include a header line. The headings are to be defined in the corresponding JSON file only.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Sourav Kulkarni, Dominik Bach.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

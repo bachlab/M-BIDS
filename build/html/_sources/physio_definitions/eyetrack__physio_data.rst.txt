@@ -1,0 +1,28 @@
+“Eyetrack” Physio Data
+======================
+
+Directory Structure
+.. code-block:: text
+
+    Where <matches> corresponds to sub-<label>[ses-<label>]_task-<label> before the suffix.  For example, <matches> corresponds to sub-01_ses-1_task-FearAcquisition for the file 
+    sub-01_ses-1_task-FearAcquisition_recording-eye1_physio.tsv.
+
+Eyetracker data MUST follow  in terms of required columns and json metadata.
+
+In addition, it is RECOMMENDED to store the detailed eyetracker geometry for pupil foreshortening error correction:
+All distances in standard unit of distance measurement: meters.
+
+Here, 
+           X axis is the axis running along the screen’s width,
+           Y axis is the axis that runs along the screen’s height, and
+           Z axis is the axis along which the eye, camera and the screen are located.
+
+.. code-block:: text
+
+    eye1_physio.tsv
+Eyetracking TSV data files do not need column names.
+
+.. code-block:: text
+
+    eye1_physio.json
+The entire json template can be found here (link to be added).
