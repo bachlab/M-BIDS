@@ -1,0 +1,207 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skin Conductance (scr) &mdash; M-BIDS  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Electrocardiogram (ecg)" href="electrocardiogram.html" />
+    <link rel="prev" title="Physiology Data Definitions" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            M-BIDS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../general/introduction.html">What is M-BIDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../event_definitions/index.html">Event Definitions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Physiology Data Definitions</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Skin Conductance (scr)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#additional-metadata-fields">Additional Metadata Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-data">Example Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-json-sidecar">Example JSON Sidecar</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="electrocardiogram.html">Electrocardiogram (ecg)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="respiration.html">Respiration (resp)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eyetracking.html">Eyetracking (eye)</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">M-BIDS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Physiology Data Definitions</a></li>
+      <li class="breadcrumb-item active">Skin Conductance (scr)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/physio_definitions/skin_conductance.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="skin-conductance-scr">
+<h1>Skin Conductance (scr)<a class="headerlink" href="#skin-conductance-scr" title="Link to this heading"></a></h1>
+<p>Following the guidelines from
+<a class="reference external" href="https://bids-specification.readthedocs.io/en/stable/modality-specific-files/physiological-recordings.html">BIDS v1.10.0</a>,
+we propose the following <strong>additional requirements</strong> for skin conductance data.</p>
+<p>Modality specific data SHOULD be split into modality specific files carrying the modality-label. Modality label for skin conductance is <code class="docutils literal notranslate"><span class="pre">scr</span></code> and scr specific data files would be organized as follows</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>physio/
+├─ sub-01_ses-1_task-TaskName_recording-scr_physio.json
+├─ sub-01_ses-1_task-TaskName_recording-scr_physio.tsv.gz
+</pre></div>
+</div>
+<p>Column names in the <code class="docutils literal notranslate"><span class="pre">scr</span></code> data files MUST be <code class="docutils literal notranslate"><span class="pre">scr</span></code> for experiments involving single recordings, or <code class="docutils literal notranslate"><span class="pre">scr1</span></code>, <code class="docutils literal notranslate"><span class="pre">scr2</span></code>, <code class="docutils literal notranslate"><span class="pre">scr3</span></code>, … for experiments involving simultaneous parallel SCR recordings from different locations on the body.</p>
+<p>These fields <strong>MUST</strong> be included in the JSON sidecar file:
+<code class="docutils literal notranslate"><span class="pre">&lt;matches&gt;_recording-scr_physio.json</span></code></p>
+<section id="additional-metadata-fields">
+<h2>Additional Metadata Fields<a class="headerlink" href="#additional-metadata-fields" title="Link to this heading"></a></h2>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Table 1: Required SCR-Specific JSON Fields</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 41%" />
+<col style="width: 14%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Possible Values</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SCRCouplerVoltage</span></code></p></td>
+<td><p>Voltage of the constant voltage SCR coupler (in V).</p></td>
+<td><p>Number</p></td>
+<td><p>e.g., 0.5</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SCRCouplerType</span></code></p></td>
+<td><p>Type of SCR coupler.</p></td>
+<td><p>Text</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AC</span></code>, <code class="docutils literal notranslate"><span class="pre">DC</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Placement</span></code></p></td>
+<td><p>Position of SCR electrodes on the body.</p></td>
+<td><p>Text</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">thenar/hypothenar</span></code>, <code class="docutils literal notranslate"><span class="pre">digits</span> <span class="pre">2/3</span></code>, …</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="example-data">
+<h2>Example Data<a class="headerlink" href="#example-data" title="Link to this heading"></a></h2>
+<p>Example values from the corresponding TSV file:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>0.0198363792144107
+0.0152587424956607
+0.0198363792144107
+0.0152587424956607
+0.0198363792144107
+...
+</pre></div>
+</div>
+</section>
+<section id="example-json-sidecar">
+<h2>Example JSON Sidecar<a class="headerlink" href="#example-json-sidecar" title="Link to this heading"></a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;scr&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;Manufacturer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Biopac&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ManufacturersModelName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EDA100C&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;DeviceSerialNumber&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1111-1111-1111&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;SamplingFrequency&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;SoftwareVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Acquisition 1.10&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;StartTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;PhysioType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;specified&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;scr&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SCR Recording&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;SCRCouplerType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AC&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;SCRCouplerVoltage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;Placement&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;thenar&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;Units&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;microsiemens&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Physiology Data Definitions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="electrocardiogram.html" class="btn btn-neutral float-right" title="Electrocardiogram (ecg)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Sourav Kulkarni, Dominik Bach.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
