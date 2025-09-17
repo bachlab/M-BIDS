@@ -1,7 +1,7 @@
 Event definitions for Fear Conditioning experiments
 ===================================================
 
-Task events for behavioral experiments are saved as ``events.tsv`` and ``events.json`` files (see `BIDS Specification/Task Events <https://bids-specification.readthedocs.io/en/stable/modality-specific-files/task-events.html>`_). Fear conditioning experiments involve **conditioned stimuli (CS)** and **unconditioned aversive stimuli (US)** events. CS that are reinforced by a following US trial are typically referred to as **CS+** while CS that are not reinforced are typically referred to as **CS-**.
+Fear conditioning experiments involve **conditioned stimuli (CS)** and **unconditioned aversive stimuli (US)** events. CS that are reinforced by a following US trial are typically referred to as **CS+** while CS that are not reinforced are typically referred to as **CS-**.
 
 Every event in the experiment **MUST** follow this naming pattern: ``<event_type><ID><polarity>``
 

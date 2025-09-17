@@ -46,7 +46,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../general/introduction.html">What is M-BIDS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../event_definitions/index.html">Event Definitions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Physiology Data Definitions</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="skin_conductance.html">Skin Conductance (SCR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="skin_conductance.html">Skin Conductance (scr)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="electrocardiogram.html">Electrocardiogram (ecg)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="respiration.html">Respiration (resp)</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Eyetracking (eye)</a><ul>
@@ -102,8 +102,58 @@ we propose the following <strong>additional requirements</strong> for eyetrackin
 <p><strong>TSV file:</strong> <code class="docutils literal notranslate"><span class="pre">&lt;matches&gt;_recording-eye1_physio.tsv</span></code>
 - Contains eyetracking timeseries data.
 - Column names are <strong>not required</strong>.</p>
+<p>Example of of TSV file:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>4.43498     515.3   257.1
+4.43851     587.5   247.2
+4.43910     586.2   247.9
+4.43851     584.5   248.9
+4.44028     583.5   248.9
+4.44264     583.3   249.2
+4.44499     583.7   248.9
+4.44558     584.2   248.5
+</pre></div>
+</div>
 <p><strong>JSON sidecar:</strong> <code class="docutils literal notranslate"><span class="pre">&lt;matches&gt;_recording-eye1_physio.json</span></code>
 - Must include metadata as specified in BEP020.</p>
+<p>Example of JSON sidecar:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{
+&quot;Columns&quot;: [
+    &quot;pupil_size&quot;,
+    &quot;x_coordinate&quot;,
+    &quot;y_coordinate&quot;
+],
+&quot;Manufacturer&quot;: &quot;SR-Research&quot;,
+&quot;ManufacturersModelName&quot;: &quot;EYELINK II CL v4.56 Aug 18 2010&quot;,
+&quot;RecordedEye&quot;: &quot;left&quot;,
+&quot;StartTime&quot;: 0,
+&quot;SampleCoordinateSystem&quot;: &quot;gaze-on-screen&quot;,
+&quot;SamplingFrequency&quot;: 500,
+&quot;pupil_size&quot;: {
+    &quot;Description&quot;: &quot;Pupil diameter&quot;,
+    &quot;Units&quot;: &quot;mm&quot;
+},
+&quot;x_coordinate&quot;: {
+    &quot;LongName&quot;: &quot;Gaze position (x)&quot;,
+    &quot;Description&quot;: &quot;Gaze position x-coordinate of the recorded eye&quot;,
+    &quot;Units&quot;: &quot;pixel&quot;
+},
+&quot;y_coordinate&quot;: {
+    &quot;LongName&quot;: &quot;Gaze position (y)&quot;,
+    &quot;Description&quot;: &quot;Gaze position y-coordinate of the recorded eye&quot;,
+    &quot;Units&quot;: &quot;pixel&quot;
+},
+&quot;BestEye&quot;: &quot;l&quot;,
+&quot;PupilFitMethod&quot;: &quot;ellipse&quot;,
+&quot;GazeRange&quot;: {
+    &quot;xmin&quot;: 0,
+    &quot;ymin&quot;: 0,
+    &quot;xmax&quot;: 1023,
+    &quot;ymax&quot;: 767
+},
+&quot;RecordingDuration&quot;: 597.102
+}
+</pre></div>
+</div>
 </section>
 <section id="eyetracking-events">
 <h2>Eyetracking Events<a class="headerlink" href="#eyetracking-events" title="Link to this heading"></a></h2>

@@ -1,8 +1,9 @@
-CALINET Data Management Manual
-
-Sourav Kulkarni, Dominik Bach
-14th August, 2025
-
 What is M-BIDS
 ======================
-M-BIDS is a data standardization philosophy build on top of BIDS that proposes stricter guidelines based on individual experiment types.
+M-BIDS is a data standardization philosophy built on top of BIDS. It introduces stricter guidelines tailored to individual experiment types.
+
+Experimental data analysis often requires key metadata. While BIDS provides ways to store such metadata, its flexibility leads to variability. This variability creates friction when developing automated analysis pipelines.
+
+M-BIDS (Machine-interpretable BIDS) addresses this by ensuring data is not only machine-readable, as BIDS intended, but also machine-interpretable.
+
+This document provides specific rules for metadata storage, column naming, and other conventions based on experiment type.
