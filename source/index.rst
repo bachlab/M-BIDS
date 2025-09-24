@@ -15,3 +15,4 @@ M-BIDS Documentation
    general/introduction
    event_definitions/index
    physio_definitions/index
+   beh_definitions/index

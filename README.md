@@ -7,3 +7,5 @@ To run this code:
    - `pip install sphinx-rtd-theme`
 2. Make HTML files: `./make html`
 3. HTML files created in the `build` folder can now be hosted.
+
+Frontend: [bachlab.github.io/M-BIDS](https://bachlab.github.io/M-BIDS/)

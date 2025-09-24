@@ -27,7 +27,7 @@ Additional Metadata Fields
 
 .. list-table:: Table 1: Required SCR-Specific JSON Fields
    :header-rows: 1
-   :widths: 25 45 15 25
+   :widths: 25 25 15 25
 
    * - Key
      - Description

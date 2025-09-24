@@ -15,7 +15,7 @@ Modality specific data SHOULD be split into modality specific files carrying the
     ├─ sub-01_ses-1_task-TaskName_recording-eye1_physio.tsv 
     ├─ sub-01_ses-1_task-TaskName_recording-eye2_physio.tsv 
 
-**For facilitating automated data processing, we REQUIRE ``eye1`` to correspond to the ``left`` eye, and ``eye2`` to correspond to the ``right`` eye.**
+**For facilitating automated data processing, we REQUIRE "eye1" to correspond to the "left" eye, and "eye2" to correspond to the "right" eye.**
 
 
 Eyetracking Physiological Data
@@ -81,6 +81,7 @@ Example of JSON sidecar:
     },
     "RecordingDuration": 597.102
     }
+
 
 Eyetracking Events
 ------------------
