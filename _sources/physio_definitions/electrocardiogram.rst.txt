@@ -6,7 +6,7 @@ Following the guidelines from
 `BIDS v1.10.0 <https://bids-specification.readthedocs.io/en/stable/modality-specific-files/physiological-recordings.html>`_, 
 we propose the following **additional requirements** for ECG data.
 
-Modality specific data SHOULD be split into modality specific files carrying the modality-label. Modality label for skin conductance is ``ecg`` and ECG specific data files would be organized as follows
+Modality specific data SHOULD be split into modality specific files carrying the modality-label. Modality label for electrocardiogram data is ``ecg`` and ECG specific data files would be organized as follows
 
 .. code-block:: text
 
@@ -39,13 +39,12 @@ Additional Metadata Fields
      - ``I``, ``II``, ``III``, ``aVF``, ``aVR``, ``aVL``, ``V1``, ``V2``, ``V3``, ``V4``, ``V5``, ``V6``, ``other``
 
 
-Example Data
-------------
-
-Example values from the corresponding TSV file:
+Example TSV Data File
+---------------------
 
 .. code-block:: text
-
+    
+    ecg
     -0.140686035156250
     -0.131378173828125
     -0.121612548828125
@@ -55,6 +54,7 @@ Example values from the corresponding TSV file:
     -0.0727844238281250
     . . .
 
+*In case of compressed tabular files (like `.tsv.gz`) column names MUST NOT be included.*
 
 
 Example JSON Sidecar

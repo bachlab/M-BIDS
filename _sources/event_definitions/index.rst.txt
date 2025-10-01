@@ -20,7 +20,9 @@ Task events for behavioral experiments are saved as ``events.tsv`` and ``events.
      - String
      - ``picture``, ``sound``, ...
 
-Additional guidelines are different for different experiment types and are listed below:
+Additionally, we REQUIRE experimental blocks to be separated by ``block_start`` and ``block_end`` events types.
+
+Specific guidelines are different for different experiment types and are listed below:
 
 .. toctree::
    :maxdepth: 1

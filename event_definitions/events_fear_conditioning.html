@@ -101,12 +101,16 @@
 <p>For example, in an experiment with one CS+, one CS-, and one US, the valid event names would be: <code class="docutils literal notranslate"><span class="pre">CS1p,</span> <span class="pre">CS2m,</span> <span class="pre">US</span></code></p>
 <p>An example <code class="docutils literal notranslate"><span class="pre">events.tsv</span></code> file would look like this</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>onset       duration        event_type      stimulus_name   task_name
+0.0         0.0             block_start     n/a         habituation
 10.0        8.0             CS1m            diamond         habituation
 25.0        8.0             CS2p            square          habituation
 40.0        8.0             CS1m            diamond         habituation
+50.0        0.0             block_end       n/a                 habituation
+53.0        0.0             block_start     n/a                 acquisition
 55.0        8.0             CS2p            square          acquisition
 62.5        0.5             US              shock           acquisition
 70.0        8.0             CS1m            diamond         acquisition
+. . .
 </pre></div>
 </div>
 </section>

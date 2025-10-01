@@ -50,7 +50,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Physiology Data Definitions</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Skin Conductance (scr)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#additional-metadata-fields">Additional Metadata Fields</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#example-data">Example Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-tsv-data-file">Example TSV Data File</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#example-json-sidecar">Example JSON Sidecar</a></li>
 </ul>
 </li>
@@ -137,10 +137,10 @@ we propose the following <strong>additional requirements</strong> for skin condu
 </tbody>
 </table>
 </section>
-<section id="example-data">
-<h2>Example Data<a class="headerlink" href="#example-data" title="Link to this heading"></a></h2>
-<p>Example values from the corresponding TSV file:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>0.0198363792144107
+<section id="example-tsv-data-file">
+<h2>Example TSV Data File<a class="headerlink" href="#example-tsv-data-file" title="Link to this heading"></a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>scr
+0.0198363792144107
 0.0152587424956607
 0.0198363792144107
 0.0152587424956607
@@ -148,6 +148,7 @@ we propose the following <strong>additional requirements</strong> for skin condu
 ...
 </pre></div>
 </div>
+<p><em>In case of compressed tabular files (like `.tsv.gz`) column names MUST NOT be included.</em></p>
 </section>
 <section id="example-json-sidecar">
 <h2>Example JSON Sidecar<a class="headerlink" href="#example-json-sidecar" title="Link to this heading"></a></h2>

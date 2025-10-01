@@ -5,7 +5,7 @@ Following the guidelines from
 `BIDS v1.10.0 <https://bids-specification.readthedocs.io/en/stable/modality-specific-files/physiological-recordings.html>`_, 
 we propose the following **additional requirements** for respiratory data.
 
-Modality specific data SHOULD be split into modality specific files carrying the modality-label. Modality label for skin conductance is ``resp`` and resp specific data files would be organized as follows
+Modality specific data SHOULD be split into modality specific files carrying the modality-label. Modality label for respiration data is ``resp`` and resp specific data files would be organized as follows
 
 .. code-block:: text
 
@@ -43,13 +43,12 @@ Additional Metadata Fields
 
 
 
-Example Data
-------------
-
-Example values from the corresponding TSV file:
+Example TSV Data File
+---------------------
 
 .. code-block:: text
-
+  
+    resp
     0.903930664062500
     0.901794433593750
     0.901184082031250
@@ -59,6 +58,7 @@ Example values from the corresponding TSV file:
     0.895080566406250
     . . .
 
+*In case of compressed tabular files (like `.tsv.gz`) column names MUST NOT be included.*
 
 Example JSON Sidecar
 --------------------
