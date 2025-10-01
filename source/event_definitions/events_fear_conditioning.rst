@@ -19,9 +19,13 @@ An example ``events.tsv`` file would look like this
 .. code-block:: text
 
     onset	duration	event_type	stimulus_name	task_name
+    0.0	        0.0	        block_start     n/a         habituation
     10.0	8.0	        CS1m            diamond	        habituation
     25.0	8.0	        CS2p            square	        habituation
     40.0	8.0	        CS1m            diamond     	habituation
+    50.0	0.0	        block_end       n/a     	    habituation
+    53.0	0.0	        block_start     n/a     	    acquisition
     55.0	8.0	        CS2p	        square          acquisition
     62.5	0.5	        US	        shock           acquisition
     70.0	8.0	        CS1m            diamond	        acquisition
+    . . .

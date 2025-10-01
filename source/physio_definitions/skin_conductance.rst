@@ -46,13 +46,12 @@ Additional Metadata Fields
      - ``thenar/hypothenar``, ``digits 2/3``, ...
 
 
-Example Data
-------------
-
-Example values from the corresponding TSV file:
+Example TSV Data File
+---------------------
 
 .. code-block:: text
-
+  
+    scr
     0.0198363792144107
     0.0152587424956607
     0.0198363792144107
@@ -60,6 +59,7 @@ Example values from the corresponding TSV file:
     0.0198363792144107
     ...
 
+*In case of compressed tabular files (like `.tsv.gz`) column names MUST NOT be included.*
 
 Example JSON Sidecar
 --------------------

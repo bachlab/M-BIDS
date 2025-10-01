@@ -5,7 +5,7 @@ Following the guidelines from
 `BEP020 <https://github.com/bids-standard/bids-specification/pull/1128>`_, 
 we propose the following **additional requirements** for eyetracking data.
 
-Modality specific data SHOULD be split into modality specific files carrying the modality-label. Modality label for skin conductance is ``ecg`` and ECG specific data files would be organized as follows
+Modality specific data SHOULD be split into modality specific files carrying the modality-label. Modality label for eyetracking data is ``eye<#>`` as shown in the example below 
 
 .. code-block:: text
 
@@ -22,21 +22,21 @@ Eyetracking Physiological Data
 ------------------------------
 
 **TSV file:** ``<matches>_recording-eye1_physio.tsv``  
-- Contains eyetracking timeseries data.  
-- Column names are **not required**.  
-
-Example of of TSV file:
 
 .. code-block:: text
 
-    4.43498	515.3	257.1
-    4.43851	587.5	247.2
-    4.43910	586.2	247.9
-    4.43851	584.5	248.9
-    4.44028	583.5	248.9
-    4.44264	583.3	249.2
-    4.44499	583.7	248.9
-    4.44558	584.2	248.5
+    pupil_size  x-coordinate    y-coordinate
+    4.43498	    515.3	257.1
+    4.43851	    587.5	247.2
+    4.43910	    586.2	247.9
+    4.43851	    584.5	248.9
+    4.44028	    583.5	248.9
+    4.44264	    583.3	249.2
+    4.44499	    583.7	248.9
+    4.44558	    584.2	248.5
+
+
+*In case of compressed tabular files (like `.tsv.gz`) column names MUST NOT be included.*
 
 **JSON sidecar:** ``<matches>_recording-eye1_physio.json``  
 - Must include metadata as specified in BEP020.  
