@@ -20,7 +20,23 @@ Task events for behavioral experiments are saved as ``events.tsv`` and ``events.
      - String
      - ``picture``, ``sound``, ...
 
-Additionally, we REQUIRE experimental blocks to be separated by ``block_start`` and ``block_end`` events types.
+
+
+Additionally, we define the following event types which may be used to record events under certain experimental conditions.
+
+.. list-table:: Table 2: Specific Event Types
+   :header-rows: 1
+   :widths: 50 50 
+  
+   * - Event Type
+     - Description
+   * - ``block_start``
+     - Start of experimental block
+   * - ``block_start``
+     - End of experimental block
+   * - ``response``
+     - Generic participant response to stimuli
+
 
 Specific guidelines are different for different experiment types and are listed below:
 
