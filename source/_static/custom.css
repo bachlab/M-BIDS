@@ -1,0 +1,23 @@
+/* Make documentation content use more available desktop width */
+.wy-nav-content {
+    max-width: 1200px;
+}
+
+/* Improve table readability on wider screens */
+.wy-table-responsive table td,
+.wy-table-responsive table th {
+    white-space: normal;
+    vertical-align: top;
+}
+
+/* Avoid huge empty-looking right side on large monitors */
+.rst-content {
+    max-width: 100%;
+}
+
+/* Make code blocks and wide tables scroll cleanly instead of breaking layout */
+.rst-content div[class^="highlight"],
+.rst-content pre,
+.wy-table-responsive {
+    overflow-x: auto;
+}
