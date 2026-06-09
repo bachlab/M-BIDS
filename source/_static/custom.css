@@ -1,21 +1,26 @@
-/* Make documentation content use more available desktop width */
+/* Wider documentation content area for large screens */
 .wy-nav-content {
     max-width: 1200px;
 }
 
-/* Improve table readability on wider screens */
+/* Make docutils/Sphinx tables use available width */
+table.docutils {
+    table-layout: fixed;
+    width: 100%;
+}
+
+/* Allow table text to wrap instead of being cut off */
+table.docutils td,
+table.docutils th,
 .wy-table-responsive table td,
 .wy-table-responsive table th {
-    white-space: normal;
+    white-space: normal !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
     vertical-align: top;
 }
 
-/* Avoid huge empty-looking right side on large monitors */
-.rst-content {
-    max-width: 100%;
-}
-
-/* Make code blocks and wide tables scroll cleanly instead of breaking layout */
+/* Keep code blocks and wide tables scrollable when needed */
 .rst-content div[class^="highlight"],
 .rst-content pre,
 .wy-table-responsive {
