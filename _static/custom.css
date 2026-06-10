@@ -1,12 +1,28 @@
-/* Apply only to docutils/Sphinx tables */
-table.docutils {
-  table-layout: fixed;   /* Respect :widths: proportions */
-  width: 100%;
+/* Wider documentation content area for large screens */
+.wy-nav-content {
+    max-width: 1200px;
 }
 
-table.docutils td, 
-table.docutils th {
-  white-space: normal !important;   /* allow wrapping */
-  word-wrap: break-word;            /* legacy wrap support */
-  overflow-wrap: break-word;        /* modern wrap support */
+/* Make docutils/Sphinx tables use available width */
+table.docutils {
+    table-layout: fixed;
+    width: 100%;
+}
+
+/* Allow table text to wrap instead of being cut off */
+table.docutils td,
+table.docutils th,
+.wy-table-responsive table td,
+.wy-table-responsive table th {
+    white-space: normal !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    vertical-align: top;
+}
+
+/* Keep code blocks and wide tables scrollable when needed */
+.rst-content div[class^="highlight"],
+.rst-content pre,
+.wy-table-responsive {
+    overflow-x: auto;
 }

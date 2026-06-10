@@ -3,20 +3,20 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Event definitions for Fear Conditioning experiments &mdash; M-BIDS  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f006f5dd" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -47,7 +47,18 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../general/introduction.html">What is M-BIDS</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Event Definitions</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Event definitions for Fear Conditioning experiments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#required-columns">Required columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#optional-columns">Optional columns</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#specific-event-types">Specific event types</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Event definitions for Fear Conditioning experiments</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#event-labels">Event labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#required-columns">Required columns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-events-tsv">Example <code class="docutils literal notranslate"><span class="pre">events.tsv</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interpretation-notes">Interpretation notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../physio_definitions/index.html">Physiology Data Definitions</a></li>
@@ -81,38 +92,126 @@
              
   <section id="event-definitions-for-fear-conditioning-experiments">
 <h1>Event definitions for Fear Conditioning experiments<a class="headerlink" href="#event-definitions-for-fear-conditioning-experiments" title="Link to this heading"></a></h1>
-<p>Fear conditioning experiments involve <strong>conditioned stimuli (CS)</strong> and <strong>unconditioned aversive stimuli (US)</strong> events. CS that are reinforced by a following US trial are typically referred to as <strong>CS+</strong> while CS that are not reinforced are typically referred to as <strong>CS-</strong>.</p>
-<p>Every event in the experiment <strong>MUST</strong> follow this naming pattern: <code class="docutils literal notranslate"><span class="pre">&lt;event_type&gt;&lt;ID&gt;&lt;polarity&gt;</span></code></p>
-<dl class="simple">
-<dt>Where:</dt><dd><ul class="simple">
-<li><p><cite>event_type</cite> is either <code class="docutils literal notranslate"><span class="pre">CS</span></code> or <code class="docutils literal notranslate"><span class="pre">US</span></code></p></li>
-<li><p><cite>ID</cite> is a numeric identifier for the stimulus.</p></li>
-<li><dl class="simple">
-<dt><cite>polarity</cite> is:</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">p</span></code> for positive/reinforced (CS+)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">m</span></code> for negative/non-reinforced (CS-)</p></li>
+<p>Fear conditioning experiments involve <strong>conditioned stimuli (CS)</strong> and <strong>unconditioned stimuli (US)</strong>. In the default Calibench Fear Conditioning challenge, event labels distinguish between reinforced CS+ trials, unreinforced CS+ trials, CS- trials, delivered US events, omitted US events, and CS- matched US timepoints.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">events.tsv</span></code> file <strong>MUST</strong> use the event labels defined below. These labels are part of the benchmark contract and are used by currently linked methods.</p>
+<section id="event-labels">
+<h2>Event labels<a class="headerlink" href="#event-labels" title="Link to this heading"></a></h2>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Table 1: Fear Conditioning event labels</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Stimulus</p></th>
+<th class="head"><p>Reinforced?</p></th>
+<th class="head"><p>Naming</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CS+</span></code></p></td>
+<td><p>yes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CSpr</span></code></p></td>
+<td><p>A reinforced conditioned trial.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CS+</span></code></p></td>
+<td><p>no</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CSpu</span></code></p></td>
+<td><p>An unreinforced conditioned trial.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CS-</span></code></p></td>
+<td><p>no</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CSm</span></code></p></td>
+<td><p>The non-conditioned stimulus.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">US</span></code></p></td>
+<td><ul class="simple">
+<li></li>
 </ul>
-</dd>
-</dl>
-</li>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">USp</span></code></p></td>
+<td><p>The event in which an unconditioned stimulus, or threat, was present.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">US</span></code></p></td>
+<td><ul class="simple">
+<li></li>
 </ul>
-</dd>
-</dl>
-<p>For example, in an experiment with one CS+, one CS-, and one US, the valid event names would be: <code class="docutils literal notranslate"><span class="pre">CS1p,</span> <span class="pre">CS2m,</span> <span class="pre">US</span></code></p>
-<p>An example <code class="docutils literal notranslate"><span class="pre">events.tsv</span></code> file would look like this</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>onset       duration        event_type      stimulus_name   task_name
-0.0         0.0             block_start     n/a             habituation
-10.0        8.0             CS1m            diamond         habituation
-25.0        8.0             CS2p            square          habituation
-40.0        8.0             CS1m            diamond         habituation
-50.0        0.0             block_end       n/a             habituation
-53.0        0.0             block_start     n/a             acquisition
-55.0        8.0             CS2p            square          acquisition
-62.5        0.5             US              shock           acquisition
-70.0        8.0             CS1m            diamond         acquisition
-. . .
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">USo</span></code></p></td>
+<td><p>The event in which an unconditioned stimulus was absent, i.e. US omission in unreinforced CS+ trials.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">US</span></code></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">USm</span></code></p></td>
+<td><p>The event where the US would have appeared in CS- trials, helping avoid bias in the comparison.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="required-columns">
+<h2>Required columns<a class="headerlink" href="#required-columns" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">events.tsv</span></code> file must contain the following columns:</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Table 2: Required <code class="docutils literal notranslate"><span class="pre">events.tsv</span></code> columns</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 60.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">onset</span></code></p></td>
+<td><p>Event onset in seconds, relative to the start of the recording.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">10.0</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">duration</span></code></p></td>
+<td><p>Event duration in seconds. For point events such as omitted or expected US timepoints, this can be <code class="docutils literal notranslate"><span class="pre">0.0</span></code>.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">8.0</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">event_type</span></code></p></td>
+<td><p>Fear Conditioning event label. The value must be one of <code class="docutils literal notranslate"><span class="pre">CSpr</span></code>, <code class="docutils literal notranslate"><span class="pre">CSpu</span></code>, <code class="docutils literal notranslate"><span class="pre">CSm</span></code>, <code class="docutils literal notranslate"><span class="pre">USp</span></code>, <code class="docutils literal notranslate"><span class="pre">USo</span></code>, or <code class="docutils literal notranslate"><span class="pre">USm</span></code>.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CSpr</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Additional columns, such as <code class="docutils literal notranslate"><span class="pre">HED</span></code> or <code class="docutils literal notranslate"><span class="pre">stimulus_name</span></code>, may be included when available. However, for the default Calibench Fear Conditioning challenge, the mandatory event labels are the ones listed in Table 1.</p>
+</section>
+<section id="example-events-tsv">
+<h2>Example <code class="docutils literal notranslate"><span class="pre">events.tsv</span></code><a class="headerlink" href="#example-events-tsv" title="Link to this heading"></a></h2>
+<p>An example <code class="docutils literal notranslate"><span class="pre">events.tsv</span></code> file looks like this:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>onset       duration        event_type
+10.0        8.0     CSpu
+17.5        0.0     USo
+29.0        8.0     CSm
+36.5        0.0     USm
+50.0        8.0     CSm
+57.5        0.0     USm
+68.5        8.0     CSpu
+76.0        0.0     USo
+89.5        8.0     CSpr
+97.0        0.425   USp
+112.5       8.0     CSm
 </pre></div>
 </div>
+</section>
+<section id="interpretation-notes">
+<h2>Interpretation notes<a class="headerlink" href="#interpretation-notes" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">CSpr</span></code> and <code class="docutils literal notranslate"><span class="pre">CSpu</span></code> both refer to CS+ trials, but they distinguish whether the trial was reinforced or unreinforced.</p>
+<p><code class="docutils literal notranslate"><span class="pre">USp</span></code> marks a delivered unconditioned stimulus.</p>
+<p><code class="docutils literal notranslate"><span class="pre">USo</span></code> marks an omitted US in an unreinforced CS+ trial.</p>
+<p><code class="docutils literal notranslate"><span class="pre">USm</span></code> marks the matched timepoint where a US would have appeared during a CS- trial. This allows methods to compare responses at equivalent timepoints and helps avoid bias in the benchmark comparison.</p>
+</section>
 </section>
 
 
