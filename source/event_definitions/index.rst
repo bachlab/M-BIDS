@@ -5,6 +5,46 @@ Task events for behavioral experiments are saved as ``events.tsv`` and ``events.
 
 In addition to the event definitions provided in the BIDS specification, M-BIDS requires event labels to be stored in an ``event_type`` column. The exact allowed event labels depend on the experiment type or benchmark challenge.
 
+Expected file location
+----------------------
+
+Fear-conditioning event files should be stored together with the corresponding task recording files. The target folder depends on the available physiological modalities.
+
+.. csv-table:: Table 1: Event file location by modality
+   :header: "Available data", "Target folder", "Reason"
+   :widths: 25, 20, 55
+
+   "Eye-tracking only", "``beh/``", "Eye-tracking-only datasets can store task events and eye recordings in the behavioral folder."
+   "SCR only", "``physio/``", "Skin conductance recordings are physiological recordings and should be stored in the physiology folder."
+   "Eye-tracking and SCR", "``physio/``", "When physiological recordings are present together, the task recordings and corresponding events are stored in the physiology folder."
+
+For an eye-tracking-only fear-conditioning dataset, the structure may look like this:
+
+.. code-block:: text
+
+    sub-01/
+    └── ses-01/
+        └── beh/
+            ├── sub-01_ses-01_task-fearconditioning_events.json
+            ├── sub-01_ses-01_task-fearconditioning_events.tsv
+            ├── sub-01_ses-01_task-fearconditioning_recording-eye1_physio.json
+            ├── sub-01_ses-01_task-fearconditioning_recording-eye1_physio.tsv.gz
+            ├── sub-01_ses-01_task-fearconditioning_recording-eye2_physio.json
+            └── sub-01_ses-01_task-fearconditioning_recording-eye2_physio.tsv.gz
+
+For an SCR-only fear-conditioning dataset, the structure may look like this:
+
+.. code-block:: text
+
+    sub-<sub_id>/
+    └── physio/
+        ├── sub-<sub_id>_task-acquisition_events.json
+        ├── sub-<sub_id>_task-acquisition_events.tsv
+        ├── sub-<sub_id>_task-acquisition_recording-scr_physio.json
+        └── sub-<sub_id>_task-acquisition_recording-scr_physio.tsv.gz
+
+If both eye-tracking and SCR recordings are present, the files should be placed under ``physio/``. This placement follows the modality handling described by BEP020 and BEP045 and is supported by the BIDS importer.
+
 Required columns
 ----------------
 
