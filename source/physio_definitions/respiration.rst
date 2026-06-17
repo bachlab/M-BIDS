@@ -1,20 +1,18 @@
 Respiration (resp)
-=================
+==================
 
-Following the guidelines from 
-`BIDS v1.10.0 <https://bids-specification.readthedocs.io/en/stable/modality-specific-files/physiological-recordings.html>`_, 
-we propose the following **additional requirements** for respiratory data.
+Following the `BIDS Physiological recordings specification <https://bids-specification.readthedocs.io/en/stable/modality-specific-files/physiological-recordings.html>`_, M-BIDS uses the following additional Calibench requirements for respiratory data.
 
-Modality specific data SHOULD be split into modality specific files carrying the modality-label. Modality label for respiration data is ``resp`` and resp specific data files would be organized as follows
+In addition to the BIDS ``_physio.tsv.gz`` / ``_physio.json`` pair, respiration data MUST use the recording label ``resp`` and should be organized as follows:
 
 .. code-block:: text
 
     physio/
-    ├─ sub-01_ses-1_task-TaskName_recording-ecg_physio.json 
-    ├─ sub-01_ses-1_task-TaskName_recording-resp_physio.tsv.gz
+    ├── sub-<participant_label>_task-acquisition_recording-resp_physio.json
+    └── sub-<participant_label>_task-acquisition_recording-resp_physio.tsv.gz
 
 
-Column names in the ``resp`` data files MUST be ``resp`` for experiments involving single recordings, or ``resp1``, ``resp2``, ``resp3``, ... for experiments involving different types of respiratory measurements like chest volume, abdominal volume, pressure, etc.
+Column names in the ``resp`` data files MUST be ``timestamp`` followed by ``resp`` for experiments involving single recordings. For different types of respiratory measurements, use ``timestamp`` followed by ``resp1``, ``resp2``, ``resp3``, and so on.
 
 
 These fields **MUST** be included in the JSON sidecar file:  
@@ -24,7 +22,7 @@ These fields **MUST** be included in the JSON sidecar file:
 Additional Metadata Fields
 --------------------------
 
-.. list-table:: Table 1: Required SCR-Specific JSON Fields
+.. list-table:: Table 1: Required respiration-specific JSON fields
    :header-rows: 1
    :widths: 25 25 15 25
 
@@ -46,19 +44,16 @@ Additional Metadata Fields
 Example TSV Data File
 ---------------------
 
+Compressed ``*.tsv.gz`` files are headerless. The columns are defined by the JSON sidecar.
+
 .. code-block:: text
   
-    resp
-    0.903930664062500
-    0.901794433593750
-    0.901184082031250
-    0.899353027343750
-    0.898132324218750
-    0.896911621093750
-    0.895080566406250
+    0.0	0.0347900390625
+    0.0004999999999881766	0.03509521484375
+    0.0009999999999763531	0.0347900390625
     . . .
 
-*In case of compressed tabular files (like `.tsv.gz`) column names MUST NOT be included.*
+In this example, the sidecar ``Columns`` value is ``["timestamp", "resp"]``.
 
 Example JSON Sidecar
 --------------------
@@ -67,21 +62,32 @@ Example JSON Sidecar
 
     {
         "Columns": [
-    		"resp",
+            "timestamp",
+            "resp"
         ],
-        "Manufacturer": "<Manufacturer-Name>",
-        "ManufacturersModelName": "<Manufacturer-Model-Name>",
-        "DeviceSerialNumber": "<Device-Serial-Number>",
-        "SamplingFrequency": 2000,
-        "SoftwareVersion": "<Software-version>",
-        "StartTime": 0,
-        "PhysioType": "specified",
+        "Manufacturer": "Biopac Systems",
+        "ManufacturersModelName": "ECG100C",
+        "DeviceSerialNumber": "1711008598",
+        "SoftwareVersion": "Biopac AcqKnowledge 5.0.2",
+        "StartTime": 0.0,
+        "PhysioType": "generic",
+        "timestamp": {
+            "LongName": "Time",
+            "Description": "a continuously increasing identifier of the sampling time registered by the device",
+            "Origin": "System startup",
+            "Units": "s"
+        },
         "resp": {
-                "Description": "Respiratory Recording",
+            "Description": "Respiratory Recording",
             "SensorType": "Belt",
-            "Plaecement": "Chest",
-            "Units": "Volts"
-        }
-
+            "Placement": "Chest",
+            "Units": "V"
+        },
+        "SamplingFrequency": 2000.0,
+        "TrimPoints": [
+            882.7075,
+            1530.7065
+        ],
+        "Duration": 647.999
     }
 

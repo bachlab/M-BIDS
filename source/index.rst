@@ -9,7 +9,7 @@ M-BIDS Documentation
 (Fully) Machine interpretable Brain Imaging Data Structure.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
    general/introduction

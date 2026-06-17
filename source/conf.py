@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "M-BIDS"
-copyright = "2025, Sourav Kulkarni, Dominik Bach"
-author = "Sourav Kulkarni, Dominik Bach"
+copyright = "2026, Sourav Kulkarni, Dominik Bach"
+author = "Abdul Wahab Madni, Sourav Kulkarni, Dominik Bach"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
