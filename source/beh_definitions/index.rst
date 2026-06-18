@@ -71,6 +71,10 @@ Stimulus presentation metadata
 
 The BIDS Events specification defines ``StimulusPresentation`` metadata for visual stimuli and eye-tracking. For visual-stimulus or eye-tracking Calibench datasets, stimulus presentation metadata MUST be available in the task sidecar. These fields are stored in the corresponding ``*_events.json`` file under ``StimulusPresentation``.
 
+.. note::
+
+   All physical distance and size measurements in ``StimulusPresentation`` MUST be reported in millimeters. This applies to fields such as ``ScreenDistance`` and ``ScreenSize``.
+
 .. csv-table:: Table 4: Required stimulus presentation fields
    :header: "Key", "Description", "Example"
    :widths: 35, 45, 20
